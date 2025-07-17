@@ -140,28 +140,38 @@ void loop() {
 
   // --------- 3. ĐIỀU KHIỂN SERVO 360 ĐỘ ----------
   bool servo1Running = false;
-  if (ps2x.Button(BTN_LEFT)) {
-    pwm.setPWM(SERVO360_1_CHANNEL, 0, PWM_RUN_left);
-    servo1Running = true;
+  if (ps2x.Button(BTN_PAD_UP) {
+    pwm.writeMicroseconds(SERVO360_1_CHANNEL, 1000);
+    //servo1Running = true;
+  } else {
+    pwm.writeMicroseconds(SERVO360_1_CHANNEL, 1500);
   }
-  else if (ps2x.Button(BTN_RIGHT)) {
-    pwm.setPWM(SERVO360_1_CHANNEL, 0, PWM_RUN_right);
-    servo1Running = true;
+
+  
+  if (ps2x.Button(BTN_PAD_DOWN)) {
+    pwm.writeMicroseconds(SERVO360_1_CHANNEL, 2000);
+    //servo1Running = true;
+  } else {
+    pwm.writeMicroseconds(SERVO360_1_CHANNEL, 1500);
   }
 
   bool servo2Running = false;
   if (ps2x.Button(PSB_PAD_RIGHT)) {
-    pwm.setPWM(SERVO360_2_CHANNEL, 0, PWM_RUN_left);
-    servo2Running = true;
+    pwm.writeMicroseconds(SERVO360_2_CHANNEL, 1000);
+    //servo1Running = true;
+  } else {
+    pwm.writeMicroseconds(SERVO360_2_CHANNEL, 1500);
   }
-  else if (ps2x.Button(PSB_PAD_DOWN)) {
-    pwm.setPWM(SERVO360_2_CHANNEL, 0, PWM_RUN_right);
-    servo2Running = true;
+  if (ps2x.Button(PSB_PAD_DOWN)) {
+    pwm.writeMicroseconds(SERVO360_1_CHANNEL, 2000);
+    //servo1Running = true;
+  } else {
+    pwm.writeMicroseconds(SERVO360_1_CHANNEL, 1500);
   }
-
-  if (!servo1Running && !servo2Running) {
-    stopServo();
-  }
+ 
+ // if (!servo1Running && !servo2Running) {
+   // stopServo();
+  //}
 
   // --------- 4. ĐIỀU KHIỂN SERVO TREO ----------
   if (ps2x.Button(PSB_PINK)) {
